@@ -1,0 +1,15 @@
+{
+  "name": "esrijs-react-sample",
+  "version": "0.0.0",
+  "description": "More comprehensive EsriJS/React Sample",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "gulp-react": "~2.0.0",
+    "gulp": "~3.8.10"
+  }
+}
