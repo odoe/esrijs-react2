@@ -21,7 +21,6 @@ define([
         startPoint: null,
         btnText: 'Draw Line',
         distance: 0,
-        distances: [],
         x: 0,
         y: 0
       };
@@ -44,7 +43,6 @@ define([
       this.draw.deactivate();
       this.setState({
         startPoint: null,
-        distances: [],
         btnText: 'Draw Line'
       });
     },
@@ -59,13 +57,7 @@ define([
 
     updateDistance: function(endPoint) {
       var distance = geomEngine.distance(this.state.startPoint, endPoint);
-      this.state.distances.push(distance);
-      this.setState({
-        distance: this.state.distances.reduce(function(a, b) {
-          return a + b;
-        }),
-        startPoint: endPoint
-      });
+      this.setState({ distance: distance });
     },
 
     drawLine: function() {
@@ -73,6 +65,10 @@ define([
       this.draw.activate(Draw.POLYLINE);
       on.once(this.props.map, 'click', function(e) {
         this.setState({ startPoint: e.mapPoint });
+        // soo hacky, but Draw.LINE interaction is odd to use
+        on.once(this.props.map, 'click', function() {
+          this.onDrawEnd();
+        }.bind(this));
       }.bind(this))
     },
 
