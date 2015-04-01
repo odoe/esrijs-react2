@@ -8,5 +8,6 @@ npm install
 bower install
 ````
 
-Blog post can be found on [odoenet](http://odoe.net/blog/esrijs-with-reactjs)
-Blog post can be found on [odoenet](http://odoe.net/blog/esrijs-with-reactjs)
+Blog post can be found on [GeoNet](https://geonet.esri.com/people/odoe/blog/2015/04/01/esrijs-with-reactjs-updated)
+
+More can be found on [odoenet](http://odoe.net/blog/esrijs-with-reactjs)
