@@ -21,6 +21,7 @@ define([
         startPoint: null,
         btnText: 'Draw Line',
         distance: 0,
+        distances: [],
         x: 0,
         y: 0
       };
@@ -43,6 +44,7 @@ define([
       this.draw.deactivate();
       this.setState({
         startPoint: null,
+        distances: [],
         btnText: 'Draw Line'
       });
     },
@@ -57,7 +59,13 @@ define([
 
     updateDistance: function(endPoint) {
       var distance = geomEngine.distance(this.state.startPoint, endPoint);
-      this.setState({ distance: distance });
+      this.state.distances.push(distance);
+      this.setState({
+        distance: this.state.distances.reduce(function(a, b) {
+          return a + b;
+        }),
+        startPoint: endPoint
+      });
     },
 
     drawLine: function() {
